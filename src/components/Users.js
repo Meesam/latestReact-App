@@ -3,7 +3,6 @@ import React,{Component} from 'react';
 class Users extends Component {
     
     componentWillMount(){
-        debugger
         setTimeout(() => {(window).gapi.signin2.render('my-signin2', {
             'scope': 'profile email',
             'width': 240,
