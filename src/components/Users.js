@@ -16,18 +16,21 @@ class Users extends Component {
     }
 
     onSuccess(data){
-     console.log('google sign in ', data);
+     debugger;
+      console.log('data ', data);
+      let profileInfo =data.getBasicProfile();     
+      console.log('google sign in ', profileInfo);
+
     }
 
     onFailure(){
      console.log('google sign in error ');
-        
     }
     
     render(){
-        return(
-            <div id="my-signin2" data-onsuccess="onSignIn"></div>
-        )
+      return(
+        <div id="my-signin2" data-onsuccess="onSignIn"></div>
+      )
     }
 }
 
