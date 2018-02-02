@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
-import '../css/sb-admin.min.css';
+
 
 class Login extends Component {
   render() {
     return (
-        <div className="container">
-        <div className="card card-login mx-auto mt-5">
-          <div className="card-header">Login</div>
-          <div className="card-body">
+       <div className="App-bg-dark">
+          <div className="App-container">
+          <div className="App-card card-login mx-auto mt-5">
+          <div className="App-card-header">Login</div>
+          <div className="App-card-body">
             <form>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Email address</label>
@@ -32,7 +33,8 @@ class Login extends Component {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+       </div>  
     );
   }
 }

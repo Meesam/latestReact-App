@@ -14,7 +14,6 @@ class Users extends Component {
     }
 
     onSuccess(data){
-     debugger;
       console.log('data ', data);
       let profileInfo =data.getBasicProfile();     
       console.log('google sign in ', profileInfo);
