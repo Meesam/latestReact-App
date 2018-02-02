@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 
 class Users extends Component {
-    
     componentWillMount(){
         setTimeout(() => {(window).gapi.signin2.render('my-signin2', {
             'scope': 'profile email',
@@ -19,7 +18,6 @@ class Users extends Component {
       console.log('data ', data);
       let profileInfo =data.getBasicProfile();     
       console.log('google sign in ', profileInfo);
-
     }
 
     onFailure(){

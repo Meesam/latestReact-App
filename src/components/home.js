@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import '../App.css';
+import { Button } from 'react-bootstrap';
 
 class Home extends Component {
   render() {
     return (
-      <div className="App">
-          This is home
+      <div>
+      <Button bsStyle="primary">Primary</Button>
       </div>
     );
   }
