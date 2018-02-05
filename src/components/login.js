@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 class Login extends Component {
   render() {
     return (
-       <div className="App-bg-dark">
-          <div className="App-container">
-          <div className="App-card card-login mx-auto mt-5">
-          <div className="App-card-header">Login</div>
-          <div className="App-card-body">
+       <div className="bg-dark">
+          <div className="container">
+          <div className="card card-login mx-auto mt-5">
+          <div className="card-header">Login</div>
+          <div className="card-body">
             <form>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Email address</label>
