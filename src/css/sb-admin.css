@@ -24,6 +24,10 @@ body.fixed-nav {
   padding-top: 1rem;
 }
 
+
+.breadcrumb {
+  margin-top: 3rem;
+}
 .scroll-to-top {
   position: fixed;
   right: 15px;

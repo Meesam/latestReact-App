@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class Login extends Component {
   render() {
     return (
-       <div className="bg-dark">
-          <div className="container">
-          <div className="card card-login mx-auto mt-5">
+      <div className="bg-dark">
+      <div className="container">   
+      <div className="card card-login mx-auto mt-5">
           <div className="card-header">Login</div>
           <div className="card-body">
             <form>
@@ -30,9 +30,9 @@ class Login extends Component {
               <a className="d-block small" href="forgot-password.html">Forgot Password?</a>
             </div>
           </div>
+        </div> 
         </div>
         </div>
-       </div>  
     );
   }
 }
