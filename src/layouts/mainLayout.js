@@ -20,7 +20,7 @@ export default class MainLayout extends Component{
               <footer className="sticky-footer">
                 <div className="container">
                     <div className="text-center">
-                    <small>Copyright © Your Website 2018</small>
+                    <small>Copyright © KJON 2018</small>
                     </div>
                 </div>
               </footer>

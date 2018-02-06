@@ -1,8 +1,11 @@
 import React,{Component} from 'react';
+import { Redirect } from 'react-router-dom'; 
+import { withRouter } from 'react-router'
 
-class Users extends Component {
+class GoogleAuth extends Component {
     componentWillMount(){
-        setTimeout(() => {(window).gapi.signin2.render('my-signin2', {
+      let d=this.props;
+         setTimeout(() => {(window).gapi.signin2.render('my-signin2', {
             'scope': 'profile email',
             'width': 240,
             'height': 50,
@@ -14,9 +17,9 @@ class Users extends Component {
     }
 
     onSuccess(data){
-      console.log('data ', data);
       let profileInfo =data.getBasicProfile();     
       console.log('google sign in ', profileInfo);
+      this.props.history.push('/dashboard');
     }
 
     onFailure(){
@@ -24,10 +27,12 @@ class Users extends Component {
     }
     
     render(){
+      
+      const { match, location, history } = this.props      
       return(
         <div id="my-signin2" data-onsuccess="onSignIn"></div>
       )
     }
 }
 
-export default Users;
+export default GoogleAuth;

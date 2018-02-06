@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GoogleAuth from '../util/googleAuth';
 
 class Login extends Component {
   render() {
@@ -24,6 +25,8 @@ class Login extends Component {
                 </div>
               </div>
               <a className="btn btn-primary btn-block" href="index.html">Login</a>
+              <hr />
+              <GoogleAuth {...this.props} />
             </form>
             <div className="text-center">
               <a className="d-block small mt-3" href="register.html">Register an Account</a>

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import {Route,HashRouter as Router , Switch   } from "react-router-dom";
+import {Route,BrowserRouter as Router , Switch   } from "react-router-dom";
 import LoginLayout from './layouts/loginLayout';
 import MainLayout from './layouts/mainLayout';
 import Home from './components/home';
-import Users from './components/Users';
 import Login from './components/login';
 import Dashboard from './components/dashboard';
 
@@ -21,11 +20,10 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <AppRoute exact path="/" layout={MainLayout} component={Dashboard} />
+          <AppRoute exact path="/" layout={LoginLayout} component={Login} />
+          <AppRoute exact path="/login" layout={LoginLayout} component={Login} />
           <AppRoute exact path="/dashboard" layout={MainLayout} component={Dashboard} />
           <AppRoute exact path="/home" layout={MainLayout} component={Home} />
-          <AppRoute exact path="/users" layout={MainLayout} component={Users} />
-          <AppRoute exact path="/login" layout={LoginLayout} component={Login} />
         </Switch>
       </Router>
     );

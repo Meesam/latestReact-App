@@ -24,6 +24,14 @@ body.fixed-nav {
   padding-top: 1rem;
 }
 
+#my-signin2{
+  width: 100%;
+}
+
+#my-signin2 > div{
+  margin: 0 auto;
+}
+
 
 .breadcrumb {
   margin-top: 3rem;
