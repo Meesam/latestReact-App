@@ -32,6 +32,27 @@ body.fixed-nav {
   margin: 0 auto;
 }
 
+.loginImg {
+  border-radius: 50%;
+  height: auto;
+  width: 1.5rem;
+}
+
+.inputSearch {
+  width: 35rem !important;
+}
+
+.notify-menu {
+  position: absolute;
+  left: -17rem;
+}
+
+.profilenotify{
+  position: absolute;
+  left: -17rem;
+  width: 22rem;
+}
+
 
 .breadcrumb {
   margin-top: 3rem;

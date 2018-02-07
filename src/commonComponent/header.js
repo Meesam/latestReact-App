@@ -1,9 +1,19 @@
 import React,{Component} from 'react';
 
+
 class Header extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state={
+      userInfo:this.props.userInfo.userInfo
+    }
+  }
+  
   render(){
-      return(
-          <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    console.log('userinfo ' , this.state.userInfo);  
+    return(
+        <div>  
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
           <a className="navbar-brand" href="index.html">Process Automation</a>
           <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -107,6 +117,20 @@ class Header extends Component {
                 </a>
               </li>
             </ul>
+            <ul className="navbar-nav">
+            <li className="nav-item">
+            <form className="form-inline my-2 my-lg-0 mr-lg-2">
+              <div className="input-group">
+                <input className="form-control inputSearch" type="text" placeholder="Search for..." />
+                <span className="input-group-append">
+                  <button className="btn btn-primary" type="button">
+                    <i className="fa fa-search"></i>
+                  </button>
+                </span>
+              </div>
+            </form>
+          </li>
+            </ul>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -118,7 +142,7 @@ class Header extends Component {
                     <i className="fa fa-fw fa-circle"></i>
                   </span>
                 </a>
-                <div className="dropdown-menu" aria-labelledby="messagesDropdown">
+                <div className="dropdown-menu notify-menu" aria-labelledby="messagesDropdown">
                   <h6 className="dropdown-header">New Messages:</h6>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="#">
@@ -152,7 +176,7 @@ class Header extends Component {
                     <i className="fa fa-fw fa-circle"></i>
                   </span>
                 </a>
-                <div className="dropdown-menu" aria-labelledby="alertsDropdown">
+                <div className="dropdown-menu notify-menu" aria-labelledby="alertsDropdown">
                   <h6 className="dropdown-header">New Alerts:</h6>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="#">
@@ -185,25 +209,33 @@ class Header extends Component {
                   <a className="dropdown-item small" href="#">View all alerts</a>
                 </div>
               </li>
-              <li className="nav-item">
-                <form className="form-inline my-2 my-lg-0 mr-lg-2">
-                  <div className="input-group">
-                    <input className="form-control" type="text" placeholder="Search for..." />
-                    <span className="input-group-append">
-                      <button className="btn btn-primary" type="button">
-                        <i className="fa fa-search"></i>
-                      </button>
-                    </span>
+              
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle mr-lg-2" id="profileDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <img className="loginImg" src={this.state.userInfo.Paa} alt={this.state.userInfo.ig}></img>
+                </a>
+                <div className="dropdown-menu profilenotify" aria-labelledby="profileDropdown">
+                  <h6 className="dropdown-header">Profile Information:</h6>
+                  <div className="dropdown-divider"></div>
+                  <div className="dropdown-item">
+                    <strong>{this.state.userInfo.ig}</strong>
+                    <span className="small float-right text-muted">11:21 AM</span>
+                    <div className="dropdown-message small">{this.state.userInfo.U3}</div>
+                  </div>
+                  <div className="dropdown-divider"></div>
+                  <div className="dropdown-item">
+                  <form className="form my-2 my-lg-0 mr-lg-2">
+                  <div className="input">
+                    <button className="btn btn-primary" type="button">Logout</button>
                   </div>
                 </form>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" data-toggle="modal" data-target="#exampleModal">
-                  <i className="fa fa-fw fa-sign-out"></i>Logout</a>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
         </nav>
+        </div>
       )
   }
 }

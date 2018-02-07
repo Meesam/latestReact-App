@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 
+
 class Dashboard extends Component{
   render(){
-      return(
-        <div>
+    console.log('header props are ' , this.props);  
+    return(
+        <div>  
         <div className="row">
           <div className="col-xl-3 col-sm-6 mb-3">
             <div className="card text-white bg-primary o-hidden h-100">

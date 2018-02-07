@@ -7,8 +7,8 @@ class GoogleAuth extends Component {
       let d=this.props;
          setTimeout(() => {(window).gapi.signin2.render('my-signin2', {
             'scope': 'profile email',
-            'width': 240,
-            'height': 50,
+            'width': 358,
+            'height': 41,
             'longtitle': true,
             'theme': 'dark',
             'onsuccess': (data) => { this.onSuccess(data); },
@@ -19,7 +19,11 @@ class GoogleAuth extends Component {
     onSuccess(data){
       let profileInfo =data.getBasicProfile();     
       console.log('google sign in ', profileInfo);
-      this.props.history.push('/dashboard');
+      this.props.history.push({
+        pathname:'/dashboard',
+        search:'?loginInfo=true',
+        state:{userInfo:profileInfo}
+      });
     }
 
     onFailure(){
