@@ -7,10 +7,18 @@ class Header extends Component {
     this.state={
       userInfo:this.props.userInfo.userInfo
     }
+    this.logOut = this.logOut.bind(this);
+  }
+
+  logOut(){
+    debugger;
+    (window).gapi.load('auth2', function () {
+      var auth2 = (window).gapi.auth2.getAuthInstance();
+      auth2.signOut();
+    });
   }
   
-  render(){
-    console.log('userinfo ' , this.state.userInfo);  
+  render(){ 
     return(
         <div>  
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -226,7 +234,7 @@ class Header extends Component {
                   <div className="dropdown-item">
                   <form className="form my-2 my-lg-0 mr-lg-2">
                   <div className="input">
-                    <button className="btn btn-primary" type="button">Logout</button>
+                    <button className="btn btn-primary" onClick={this.logOut} type="button">Logout</button>
                   </div>
                 </form>
                   </div>
