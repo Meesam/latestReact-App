@@ -1,15 +1,25 @@
 import React, {Component} from 'react';
-import Draggable from 'react-draggable';
+import Draggable , {DraggableCore} from 'react-draggable';
 
-export default class InputTextDraggable extends Component{
-    render(){
-        return(
-            <Draggable>
-              <div className="inputDraggable">
-                <input type="text" name="inputName"></input>
-              </div>
-            </Draggable>
+ class InputTextDraggable extends Component{
+   constructor(props, context){
+    super(props, context);
+    this.selectElement = this.selectElement.bind(this);
+   }
+   
+   selectElement(e){
+     console.log('select e ' , e);
+   }
+  
+  render(){  
+      return(
+        <Draggable enableUserSelectHack={false}>
+          <a href="javascript:void(0)" onClick={this.selectElement} className="inputDraggable">
+            <input type="text" />
+          </a>
+        </Draggable>
       )
   }
 }
 
+export default InputTextDraggable;

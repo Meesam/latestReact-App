@@ -57,6 +57,19 @@ body.fixed-nav {
   left: -17rem;
 }
 
+.react-draggable, .cursor {
+  cursor: move;
+}
+.no-cursor {
+  cursor: auto;
+}
+.cursor-y {
+  cursor: ns-resize;
+}
+.cursor-x {
+  cursor: ew-resize;
+}
+
 .inputDraggable{
   background-color: #f7d8b0;
   border-radius: 5px;
