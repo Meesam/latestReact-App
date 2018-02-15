@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
+import store, { history } from './store/store';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './vendor/bootstrap/css/bootstrap.min.css';
@@ -9,5 +12,14 @@ import './css/sb-admin.css';
 
 
 ReactDOM.render(
-  <App /> , document.getElementById('root'))
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <div>
+        <App />
+      </div>
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('root')
+)
+
 registerServiceWorker();

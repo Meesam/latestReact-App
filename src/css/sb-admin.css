@@ -80,6 +80,37 @@ body.fixed-nav {
     padding: 0.5rem 0rem;
 }
 
+.cardContainer{
+  margin-top: 3.125rem;
+  width: 87%;
+  left: 2.5rem;
+}
+
+.cardHeader{
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #f7d8b0;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    text-align: left;
+    /* width: 100%; */
+}
+
+.d-flex.mr-3.rounded-circle {
+  min-width: 5rem;
+}
+
+.media-body.editable-icon > div {  
+display: flex;
+align-items: center;
+}
+
+.media-body.editable-icon a{
+  margin-left: 0.5rem;
+}
+
+.media-body select{width: 9.4rem;}
+
+
 .inputDraggable input [type="text"]{width: 25rem;}
 
 .dock{
