@@ -21,9 +21,9 @@ class ElementContainer extends Component{
          <div className="card-header cardHeader">
            <i className={this.state.Icon}></i>{this.state.Title}</div>
             <div className="list-group list-group-flush small">
-            <div className="list-group-item list-group-item-action">
-                {this.props.children}
-            </div>
+              <div className="list-group-item list-group-item-action">
+                  {this.props.children}
+              </div>
             </div>
         </div>
       )
