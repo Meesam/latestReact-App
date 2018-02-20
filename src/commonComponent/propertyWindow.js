@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {messageBoxProperties} from '../properties/messageBox';
+import {Proporties} from '../properties/index';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {changeTitle} from '../actions/workbenchAction';
-
+import {selectElement} from '../actions/elementsAction';
 
 class PropertyWindow extends Component{
   constructor(props,context){
@@ -11,16 +11,41 @@ class PropertyWindow extends Component{
     this.state={
       properties:{}
     }
-
     this.handleChange=this.handleChange.bind(this);
   }
 
   componentWillMount(){
-    this.setState({properties:messageBoxProperties});
+    debugger;
+    switch(this.props.elementType){
+      case 'smtp':
+      this.setState({properties:Proporties.smtpMailingProperties});
+       break;
+
+       case 'messagebox':
+       this.setState({properties:Proporties.messageBoxProperties});
+       break;
+       
+       default:
+       this.setState({properties:Proporties.defaultProperties});
+       break;
+    }
   }
 
-  handleChange(event) {
-    this.props.changeTitle(event.target.value);
+  componentWillReceiveProps(nextProps) {
+      switch(this.props.elementType){
+        case 'smtp':
+        this.setState({properties:Proporties.smtpMailingProperties});
+         break;
+         case 'messagebox':
+         this.setState({properties:Proporties.messageBoxProperties});
+         break;
+         this.setState({properties:Proporties.defaultProperties});
+         default:
+      }
+  }
+
+  handleChange(event,elementName) {
+    this.props.changeTitle({name:elementName,value:event.target.value})
   }
 
   bindElementProperties(properties){  
@@ -54,7 +79,8 @@ class PropertyWindow extends Component{
 
                         default :
                           return (
-                            <input type='text' name={properties[key].UniqueName} value={this.props.title} onChange={this.handleChange} />
+                            <input type='text' name={properties[key].UniqueName} value={this.props.title}
+                            onChange={(e)=>this.handleChange(e,properties[key].UniqueName)} />
                           )
                       }
                     })()}
@@ -67,6 +93,8 @@ class PropertyWindow extends Component{
   
   
     render(){
+      debugger;
+      console.log('window props ' , this.props);
       return(
         <div className="card mb-3 dock" id="propertyWindow">
          <div className="card-header">
@@ -85,6 +113,8 @@ class PropertyWindow extends Component{
 const mapStateToProps = state => ({
   title: state.workbenchReducer.title,
   isTitleChanging: state.workbenchReducer.isTitleChanging,
+  elementType:state.elementReducer.elementType,
+  elementClick:state.elementReducer.elementClick
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

@@ -1,7 +1,8 @@
 import {TITLECHANGE_REQUESTED, TITLECHANGE} from '../actions/workbenchAction';
 
 const initialState = {
-    title:'Message Box',
+    messageBoxTitle:'Message Box',
+    mailBoxTitle:'Smtp Mail',
     isTitleChanging:false
 }
 
@@ -14,7 +15,10 @@ export default (state = initialState, action)=>{
 
     case TITLECHANGE:
       return {
-          ...state, title:action.payload , isTitleChanging:!state.isTitleChanging
+          ...state, 
+          messageBoxTitle:action.payload.messageBoxTitle,
+          mailBoxTitle:action.payload.mailBoxTitle,
+          isTitleChanging:!state.isTitleChanging
       }
 
       default:
