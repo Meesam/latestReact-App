@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import GoogleAuth from '../util/googleAuth';
+import GoogleAuth from '../../util/googleAuth';
+
 
 class Login extends Component {
   render() {
+    debugger;
+    this.props;
     return (
       <div className="bg-dark">
       <div className="container">   

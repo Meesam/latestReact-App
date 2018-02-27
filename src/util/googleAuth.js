@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import { Redirect } from 'react-router-dom'; 
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
+import basePath from '../commonComponent/basepath';
+import {Route,BrowserRouter } from "react-router-dom";
 
 class GoogleAuth extends Component {
     componentWillMount(){
@@ -19,9 +21,10 @@ class GoogleAuth extends Component {
     onSuccess(data){
       let profileInfo =data.getBasicProfile();     
       console.log('google sign in ', profileInfo);
-      this.props.history.push({
+      let s=new BrowserRouter();
+       s.history.push({
         pathname:'/dashboard',
-        search:'?loginInfo=true',
+        search:'',
         state:{userInfo:profileInfo}
       });
     }

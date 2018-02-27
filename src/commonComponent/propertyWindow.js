@@ -15,7 +15,7 @@ class PropertyWindow extends Component{
   }
 
   componentWillMount(){
-    debugger;
+
     switch(this.props.elementType){
       case 'smtp':
       this.setState({properties:Proporties.smtpMailingProperties});
@@ -93,8 +93,6 @@ class PropertyWindow extends Component{
   
   
     render(){
-      debugger;
-      console.log('window props ' , this.props);
       return(
         <div className="card mb-3 dock" id="propertyWindow">
          <div className="card-header">
