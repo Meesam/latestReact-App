@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import {withRouter} from "react-router-dom";
 
 
 class Dashboard extends Component{
-  render(){
-    console.log('header props are ' , this.props);  
+  render(){ 
     return(
         <div>  
         <div className="row">
@@ -857,4 +858,7 @@ class Dashboard extends Component{
 }
 
 
-export default Dashboard;
+export default withRouter(connect(
+  null,
+  null
+)(Dashboard));

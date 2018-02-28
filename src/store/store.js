@@ -38,6 +38,7 @@ export default (() => {
 })();
 
 export function registerReducer(store, name, reducer) {
+  debugger;
   store.async[name] = reducer;
   store.replaceReducer(createReducer(store.async));
 };

@@ -17,10 +17,7 @@ export default class AsyncComponent extends PureComponent {
   }
 
   render() {
-    debugger;
     const { Component } = this.state;
-    let d= this.props;
-    console.log('Component ' , Component);
     return (
       <div>
         {Component ? <Component {...this.state} /> : <LoadingIndicator />}

@@ -108,18 +108,6 @@ class PropertyWindow extends Component{
 } 
 
 
-const mapStateToProps = state => ({
-  title: state.workbenchReducer.title,
-  isTitleChanging: state.workbenchReducer.isTitleChanging,
-  elementType:state.elementReducer.elementType,
-  elementClick:state.elementReducer.elementClick
-})
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-changeTitle
-}, dispatch)
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PropertyWindow)
+export default PropertyWindow;

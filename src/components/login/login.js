@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import GoogleAuth from '../../util/googleAuth';
+import { connect } from 'react-redux';
+import {withRouter} from "react-router-dom";
 
 
 class Login extends Component {
   render() {
-    debugger;
-    this.props;
     return (
       <div className="bg-dark">
       <div className="container">   
@@ -43,4 +43,8 @@ class Login extends Component {
   }
 }
 
-export default Login;
+
+export default withRouter (connect(
+  null,
+  null
+)(Login));

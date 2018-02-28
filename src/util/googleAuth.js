@@ -19,10 +19,8 @@ class GoogleAuth extends Component {
     }
 
     onSuccess(data){
-      let profileInfo =data.getBasicProfile();     
-      console.log('google sign in ', profileInfo);
-      let s=new BrowserRouter();
-       s.history.push({
+      let profileInfo =data.getBasicProfile();    
+      this.props.history.push({
         pathname:'/dashboard',
         search:'',
         state:{userInfo:profileInfo}

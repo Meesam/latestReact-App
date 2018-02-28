@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import {selectElement} from '../actions/elementsAction';
 
 
- class InputTextDraggable extends Component{
+ export default class InputTextDraggable extends Component{
   constructor(props,context){
     super(props,context)
     this.state={
@@ -27,6 +27,8 @@ import {selectElement} from '../actions/elementsAction';
 
   
   render(){    
+     debugger;
+     this.props;
       return(
           <Draggable enableUserSelectHack={false}>
             <div href='javascript:void(0)' onClick={this.handleClick}>
@@ -43,19 +45,3 @@ import {selectElement} from '../actions/elementsAction';
     }
 }
 
-
-const mapStateToProps = state => ({
-  messageBoxTitle: state.workbenchReducer.messageBoxTitle,
-  isTitleChanging: state.workbenchReducer.isTitleChanging,
-  elementType:state.elementReducer.elementType,
-  elementClick:state.elementReducer.elementClick
-})
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  selectElement
-  }, dispatch)
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(InputTextDraggable)

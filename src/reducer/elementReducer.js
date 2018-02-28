@@ -1,4 +1,4 @@
-import {ELEMENTCLICK_REQUESTED, ELEMENTCLICK} from '../actions/elementsAction';
+import {ELEMENTCLICK_REQUESTED, ELEMENTCLICK} from '../actions/elementsAction'; 
 
 const initialState = {
     elementType:'default',

@@ -13,7 +13,7 @@ class Editor extends Component{
             </ul>   
             <div className="tab-content">
                 <div className="tab-pane active" id="home" role="tabpanel">
-                    <InputTextDraggable />
+                    <InputTextDraggable {...this.props} />
                 </div>
             </div>
             

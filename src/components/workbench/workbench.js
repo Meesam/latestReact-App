@@ -1,11 +1,18 @@
 import React ,{Component} from 'react';
 import {Grid, Row , Col, Panel } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import {withRouter} from "react-router-dom";
 import Draggable from 'react-draggable';
 import Resizable from 're-resizable'; 
-import Editor from '../util/editor';
-import PropertyWindow from '../commonComponent/propertyWindow';
+import { bindActionCreators } from 'redux'
+import {selectElement} from '../../actions/elementsAction';
+import {changeTitle} from '../../actions/workbenchAction';
 
-export default class WorkBench extends Component{
+import Editor from '../../util/editor';
+import PropertyWindow from '../../commonComponent/propertyWindow';
+
+
+class WorkBench extends Component{
     constructor(props){
        super(props);
        this.state={
@@ -15,12 +22,15 @@ export default class WorkBench extends Component{
     }
 
     render(){
+      debugger;
+      this.props;
       return(
         <div>
         <Grid>
         <Row className="show-grid">
+
          <Col xs={12} md={8}>
-          <Editor />
+          <Editor {...this.props} />
          </Col>
          <Col xs={6} md={4}>
          
@@ -32,7 +42,7 @@ export default class WorkBench extends Component{
                 height: this.state.height + d.height,
               });
             }}>
-            <PropertyWindow />
+            <PropertyWindow {...this.props} />
           </Resizable>
          </Draggable>
          </Col>
@@ -42,3 +52,20 @@ export default class WorkBench extends Component{
       )
     }
 }
+
+const mapStateToProps = workbench => ({
+  messageBoxTitle: workbench.messageBoxTitle,
+  isTitleChanging: workbench.isTitleChanging,
+  elementType:workbench.elementType,
+  elementClick:workbench.elementClick,
+  title: workbench.title
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  selectElement , changeTitle
+  }, dispatch)
+
+export default withRouter (connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WorkBench));
