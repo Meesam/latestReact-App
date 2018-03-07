@@ -15,7 +15,6 @@ class ModalPopUp extends Component{
       }
     
       render() {
-        debugger;
         const popover = (
             <Popover id="modal-popover" title="popover">
               very popover. such engagement

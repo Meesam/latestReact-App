@@ -1,4 +1,4 @@
-import DashBoard from './dashboard';
+import DashBoard from './dashboard.container';
 import dashboard from './dashboard.reducer';
 
 export const Component = DashBoard;

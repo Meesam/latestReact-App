@@ -1,4 +1,4 @@
-import Login from './login';
+import Login from './login.container';
 import login from './login.reducer';
 
 export const Component = Login;

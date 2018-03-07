@@ -1,27 +1,27 @@
-import React, { PureComponent } from 'react';
-import LoadingIndicator from '../commonComponent/loaderComponent';
+import React, { Component } from "react";
 
-export default class AsyncComponent extends PureComponent {
-  constructor(props) {
-    super(props);
+export default function asyncComponent(importComponent) {
+  class AsyncComponent extends Component {
+    constructor(props) {
+      super(props);
 
-    this.state = {
-      Component: null
+      this.state = {
+        component: null
+      };
+    }
+
+    async componentDidMount() {
+      const { default: component } = await importComponent();
+
+      this.setState({
+        component: component
+      });
+    }
+
+    render() {
+      const C = this.state.component;
+      return C ? <C {...this.props} /> : null;
     }
   }
-
-  componentWillMount() {
-    if(!this.state.Component) {
-      this.props.moduleProvider().then( ({Component}) => this.setState({ Component }));
-    }
-  }
-
-  render() {
-    const { Component } = this.state;
-    return (
-      <div>
-        {Component ? <Component {...this.state} /> : <LoadingIndicator />}
-      </div>
-    );
-  }
-};
+  return AsyncComponent;
+}

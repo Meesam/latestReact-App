@@ -11,7 +11,6 @@ class Header extends Component {
   }
 
   logOut(){
-    debugger;
     (window).gapi.load('auth2', function () {
       var auth2 = (window).gapi.auth2.getAuthInstance();
       auth2.signOut();

@@ -16,7 +16,6 @@ import {selectElement} from '../actions/elementsAction';
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger;
     if(this.props.mailBoxTitle !== nextProps.mailBoxTitle) {
        this.setState({title: nextProps.mailBoxTitle});
     }

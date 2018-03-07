@@ -10,19 +10,21 @@ const initialState = {
 }
 
 export default function workBenchReducer(state = initialState, action){
+
   switch(action.type){
+    
     case TITLECHANGE_REQUESTED:
       return{
           ...state,isTitleChanging:true
       }
 
-    case TITLECHANGE:
-      return {
-          ...state, 
-          messageBoxTitle:action.payload.messageBoxTitle,
-          mailBoxTitle:action.payload.mailBoxTitle,
-          isTitleChanging:!state.isTitleChanging
-      }
+      case TITLECHANGE:
+        return {
+            ...state, 
+            messageBoxTitle:action.payload.messageBoxTitle,
+            mailBoxTitle:action.payload.mailBoxTitle,
+            isTitleChanging:!state.isTitleChanging
+        }
 
       case ELEMENTCLICK_REQUESTED:
         return {
@@ -31,7 +33,7 @@ export default function workBenchReducer(state = initialState, action){
 
       case ELEMENTCLICK:
         return {
-            ...state, elementType:action.payload , elementClick:!state.elementClick
+          ...state, elementType:action.payload , elementClick:!state.elementClick
         }
 
       default:

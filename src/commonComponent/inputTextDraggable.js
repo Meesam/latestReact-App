@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import Draggable , {DraggableCore} from 'react-draggable';
 import ElementContainer from '../commonComponent/elementContainer';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import {selectElement} from '../actions/elementsAction';
-
 
  export default class InputTextDraggable extends Component{
   constructor(props,context){
@@ -27,7 +23,6 @@ import {selectElement} from '../actions/elementsAction';
 
   
   render(){    
-     debugger;
      this.props;
       return(
           <Draggable enableUserSelectHack={false}>

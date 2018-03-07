@@ -1,4 +1,5 @@
-import WorkBench from './workbench';
+
+import WorkBench from './workbench.container';
 import workbench from './workbench.reducer';
 
 export const Component = WorkBench;

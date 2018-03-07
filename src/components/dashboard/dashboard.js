@@ -858,7 +858,5 @@ class Dashboard extends Component{
 }
 
 
-export default withRouter(connect(
-  null,
-  null
-)(Dashboard));
+export default Dashboard;
+ 

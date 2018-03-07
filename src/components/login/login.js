@@ -44,7 +44,4 @@ class Login extends Component {
 }
 
 
-export default withRouter (connect(
-  null,
-  null
-)(Login));
+export default Login;
