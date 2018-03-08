@@ -4,15 +4,7 @@ import {Provider} from 'react-redux'
 import LoginLayout from './layouts/loginLayout';
 import MainLayout from './layouts/mainLayout';
 import WorkBenchLayout from './layouts/workBenchLayout';
-import asyncComponent from './util/componentProvider';
-//import store from './store/store';
-//import module from './module';
-//import basePath from './commonComponent/basepath';
-// import Loadable from 'react-loadable';
-//import Login from './components/login/login';
-//import Dashboard from './components/dashboard/dashboard';
-//import Home from './components/home/home';
-//import WorkBench from './components/workbench/workbench';
+import Authorized from './commonComponent/authorizedComponent';
 import Loadable from 'react-loadable';
 
 const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
@@ -23,7 +15,7 @@ const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
   )} />
 )
 
-const MyLoadingComponent = ({isLoading, error}) => {
+const LoaderComponent = ({isLoading, error}) => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -36,23 +28,23 @@ const MyLoadingComponent = ({isLoading, error}) => {
 };
 
  const AsyncLogin = Loadable({
-   loader: () => import("./components/login/login"),
-   loading: MyLoadingComponent
-   });
+   loader: () => import(/* webpackChunkName: "Login" */ "./components/login/login"),
+   loading: LoaderComponent
+ });
 
 const AsyncDashboard = Loadable({
-  loader: () => import("./components/dashboard/dashboard"),
-  loading: MyLoadingComponent
+  loader: () => import(/* webpackChunkName: "Dashboard" */ "./components/dashboard/dashboard"),
+  loading: LoaderComponent
 });
 
 const AsyncHome = Loadable({
-  loader: () => import("./components/home/home"),
-  loading: MyLoadingComponent
+  loader: () => import(/* webpackChunkName: "Home" */ "./components/home/home"),
+  loading: LoaderComponent
 });
 
 const AsyncWorkbench = Loadable({
-  loader: () => import("./components/workbench/workbench"),
-  loading: MyLoadingComponent
+  loader: () => import(/* webpackChunkName: "Workbench" */ "./components/workbench/workbench"),
+  loading: LoaderComponent
 });
 
 class App extends Component {
@@ -60,11 +52,11 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <AppRoute exact path="/" layout={LoginLayout} component={AsyncLogin} />
-          <AppRoute  path="/login" layout={LoginLayout} component={AsyncLogin} />
-          <AppRoute  path="/dashboard" layout={MainLayout} component={AsyncDashboard} />
-          <AppRoute  path="/home" layout={MainLayout} component={AsyncHome} />
-          <AppRoute  path="/workbench/new" layout={WorkBenchLayout} component={AsyncWorkbench} />
+          <AppRoute exact path="/" layout={LoginLayout} component={Authorized(AsyncLogin)} />
+          <AppRoute  path="/login" layout={LoginLayout} component={Authorized(AsyncLogin)} />
+          <AppRoute  path="/dashboard" layout={MainLayout} component={Authorized(AsyncDashboard)} />
+          <AppRoute  path="/home" layout={MainLayout} component={Authorized(AsyncHome)} />
+          <AppRoute  path="/workbench/new" layout={WorkBenchLayout} component={Authorized(AsyncWorkbench)} />
         </Switch>
       </Router>
     );

@@ -52,6 +52,8 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+
+
 // -- Bar Chart Example
 var ctx = document.getElementById("myBarChart");
 var myLineChart = new Chart(ctx, {
