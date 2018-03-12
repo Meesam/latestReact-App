@@ -17,7 +17,7 @@ const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
 
 const LoaderComponent = ({isLoading, error}) => {
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading&#8230;</div>;
   }
   else if (error) {
     return <div>Sorry, there was a problem loading the page.</div>;

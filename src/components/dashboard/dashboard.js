@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from "react-router-dom";
+import ChartComponent from '../../commonComponent/chartComponent';
 
 
 class Dashboard extends Component{
@@ -91,7 +92,7 @@ class Dashboard extends Component{
               <div className="card-body">
                 <div className="row">
                   <div className="col-sm-8 my-auto">
-                    <canvas id="myBarChart" width="100" height="50"></canvas>
+                    <ChartComponent Id='barChart' Height='100' Width='50' ChartType={'bar'} />
                   </div>
                   <div className="col-sm-4 text-center my-auto">
                     <div className="h4 mb-0 text-primary">$34,693</div>
@@ -305,7 +306,8 @@ class Dashboard extends Component{
               <div className="card-header">
                 <i className="fa fa-pie-chart"></i> Pie Chart Example</div>
               <div className="card-body">
-                <canvas id="myPieChart" width="100%" height="100"></canvas>
+              <ChartComponent Id='pieChart' Height={"100"} Width={"50"} ChartType={'pie'} />
+                
               </div>
               <div className="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
